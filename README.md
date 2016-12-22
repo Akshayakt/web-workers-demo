@@ -1,1 +1,1 @@
-# web-workers-demo
+This is an example of web workers.
