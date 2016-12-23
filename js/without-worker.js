@@ -1,4 +1,5 @@
 var results = null,
+	resultsAry = [],
 	worker;
 $(document).ready(function() {
 	var inputField = $("#series-length"),
@@ -17,30 +18,24 @@ $(document).ready(function() {
 	        errorFlag = true;
 	    }
 	    else {
-			if (!numberValidation(seriesLen)) {
-				errorField.html("Please enter a valid number.");
-				errorFlag = true;
-			}
-			else {
-				errorField.empty();
-			}
-		}
-		if (errorFlag) {
-			return false;
-		}
-		else {
-			seriesLen = parseInt(seriesLen),
-			results.html("");
-			if(typeof(Worker) !== "undefined") {
-				worker = new Worker("./js/worker.js");
-				worker.onmessage = messageHandler;
-				worker.onerror = errorHandler;
-				worker.postMessage(seriesLen);
-			}
-			else {
-				document.getElementById("results").innerHTML = "Sorry, your browser does not support Web Workers...";
-			}
+	    	if (!numberValidation(seriesLen)) {
+	    		errorField.html("Please enter a valid number.");
+	        	errorFlag = true;
+	    	}
+	    	else {
+	       		errorField.empty();	    		
+	    	}
 	    }
+	    if (errorFlag) {
+        	return false;
+      	}
+      	else {
+			seriesLen = parseInt(seriesLen);
+			results.html("");
+			resultsAry = [],
+			resultsAry = generateFibonacciSeries(seriesLen);
+			displayHandler(resultsAry);
+		}
 	});
 // Animation code
 	var canvas = document.getElementById('canvas'),
@@ -93,26 +88,35 @@ $(document).ready(function() {
 
 });
 
-function messageHandler(e) {
-	var resultFromWorker = e.data;
-	if (resultFromWorker == "Starting.." || resultFromWorker == "Stopping..") {
-		$("#info").html(resultFromWorker);
+function displayHandler(data) {	
+	$.each(data, function () {
+		results.append("<li>" + this + "</li>");
+	});
+}
+
+function generateFibonacciSeries(n) {
+	for (var i = 0; i <= n-1; i++) {
+		resultsAry.push(calculateNextFibonacciValue(i));
+	}
+	return resultsAry;
+}
+
+function calculateNextFibonacciValue(n) {
+	var s = 0,
+		returnValue;
+	if (n == 0) {
+		return (s);
+	}
+	else if (n == 1) {
+		s += 1;
+		return (s);
 	}
 	else {
-		$.each(resultFromWorker, function () {
-			showResults(this);
-		});
+		return (calculateNextFibonacciValue(n - 1) + calculateNextFibonacciValue(n - 2));
 	}
 }
 
-function errorHandler(e) {
-	showResults(e.message);
-}
-
-function showResults(message) {
-	results.append("<li>" + message + "</li>");
-}
 function numberValidation(number) {
 	var intRegex = /^\d+$/;
-	return intRegex.test(number);
+  	return intRegex.test(number);
 }
