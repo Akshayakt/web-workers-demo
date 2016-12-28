@@ -1,0 +1,102 @@
+.fixed-background {
+    background-color: #ebeff1;
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 100%;
+    z-index: 0;
+    font-family: sans-serif;
+}
+.main-wrapper {
+	position: relative;
+	margin-top: 170px;
+}
+.main-heading {
+	font-weight: 700;
+	padding-left: 20px;
+	color: rgba(0, 0, 0, 0.8);
+}
+.worker-section,
+.animation-section {
+	padding: 30px;
+	vertical-align: top;
+	background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    margin-right: 20px;
+    margin-top: 20px;
+}
+.section-heading {
+	font-size: 28px;
+	font-weight: 600;
+	color: rgba(0, 0, 0, 0.4);
+}
+.section-sub-heading {
+	color: rgba(0, 0, 0, 0.7);
+}
+.worker-section {
+    padding-left: 20px;
+    padding-top: 20px;
+    margin-left: 20px;
+}
+.common-button,
+.common-button:focus {
+	width: 100%;
+	text-transform: uppercase;
+	display: inline-block;
+	height: 40px;
+	background: #0095d8;
+	border-radius: 5px;
+	line-height: 40px;
+	font-size: 16px;
+	font-weight: 600;
+	color: #fff;
+	padding: 0;
+	border: 0 none;
+	text-align: center;
+	margin: 0;
+	outline: none;
+}
+#generate-button.common-button {
+	margin-top: 15px;
+	width: 190px;
+}
+.custom-input,
+.custom-input:focus {
+	background-color: #f8f8f8;
+	border: 2px solid #d5d5d5;
+	border-radius: 4px;
+	padding-left: 16px;
+	width: 40%;
+	height: 40px;
+	margin-right: 20px;
+	outline: none;
+}
+#canvas {
+	background-color: #f8f8f8;
+	border: 2px solid #d5d5d5;
+}
+.input-wrapper {
+	position: relative;
+}
+.input-wrapper .error-message {
+  color: #ff0000;
+  position: absolute;
+  top: 45px;
+}
+@media only screen and (min-width:768px) {
+	.main-wrapper {
+		margin-top: 75px;
+	}
+	.worker-section {
+		display: inline-block;
+		width: 40%;
+	}
+	.animation-section {
+		display: inline-block;
+		width: 46%;
+	}
+}

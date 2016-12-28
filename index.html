@@ -1,0 +1,50 @@
+<!DOCTYPE>
+<html>
+<head>
+	<title>Web Workers Demo</title>
+	<link href="./css/worker.css" media="screen" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+	<section class="fixed-background"></section>
+	<section>
+		<header>
+			<nav class="navbar navbar-inverse navbar-fixed-top">
+			  <div class="container-fluid">
+			    <div class="navbar-header">
+			      <a class="navbar-brand" href="#">Web Workers Demo</a>
+			    </div>
+			    <ul class="nav navbar-nav navbar-right">
+			      <li class="active"><a href="">With Web Worker</a></li>
+			      <li><a href="without-worker.html">Without Web Workers</a></li>
+			    </ul>
+			  </div>
+			</nav>
+		</header>
+		<main class="main-wrapper">
+			<h1 class="main-heading">With Web Worker</h1>
+			<section class="worker-section">
+				<h2 class="section-heading">Generate Fibonacci Series</h2>
+				<h3 class="section-sub-heading">With workers</h3>
+				<div class="input-wrapper">
+					<input type="text" value="40" id="series-length" class="custom-input">
+					<input type="button" value="generate series" id="generate-button" class="common-button">
+					<div class=error-message></div>
+				</div>
+				<h4 id="info"></h4>
+				<div class="results-wrapper">
+					<ol id="results"></ol>
+				</div>
+			</section>
+			<section class="animation-section">
+				<h2 class="section-heading">Simple Animation</h2>
+				<canvas id="canvas" width="400" height="300"></canvas>
+				<div class="info">Mouse over to see animation</div>
+			</section>
+		</main>
+	</section>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="./js/main.js"></script>
+</body>
+</html>
