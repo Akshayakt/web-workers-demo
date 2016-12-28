@@ -12,6 +12,7 @@ function generateFibonacciSeries(n) {
 		results.push(calculateNextFibonacciValue(i));
 	}
 	postMessage(results);
+	postMessage("Completed");
 }
 
 function calculateNextFibonacciValue(n) {

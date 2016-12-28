@@ -97,7 +97,7 @@ $(document).ready(function() {
 
 function messageHandler(e) {
 	var resultFromWorker = e.data;
-	if (resultFromWorker == "Starting.." || resultFromWorker == "Stopping..") {
+	if (resultFromWorker == "Starting.." || resultFromWorker == "Completed") {
 		$("#info").html(resultFromWorker);
 	}
 	else {
